@@ -111,7 +111,9 @@ for idx, row in table.iterrows():
             st.selectbox(label='Category',
                          options=categories,
                          index=categories.index(row.category_name),
-                         key=key)
+                         key=key,
+                         on_change=update_record,
+                         args=(row.id, 'category_name', key, st.secrets.category_table))
         with col3:
             key = row.id + '_status'
 
